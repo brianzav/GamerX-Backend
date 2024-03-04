@@ -1,8 +1,7 @@
 package br.com.senac.gamerx.model;
 
 import br.com.senac.gamerx.enumeration.UserRole;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -21,10 +20,15 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class UserModel implements UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String email;
     private String password;
+    private String cpf;
+    @Enumerated(EnumType.STRING)
     private UserRole role;
+    private boolean active;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
