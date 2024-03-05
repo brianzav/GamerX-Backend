@@ -1,0 +1,83 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header img {
+    width: 150px;
+}
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Section Login */
+section.login {
+    background-color: #fff;
+    padding: 40px;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+	margin-top: 50px; /* Altera o valor para a distância desejada */
+}
+
+section.login h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+section.login p {
+    margin-bottom: 10px;
+}
+
+section.login a {
+    color: #0073b7;
+    text-decoration: none;
+}
+
+section.login form {
+    margin-top: 20px;
+}
+
+section.login label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+section.login input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+section.login button {
+    background-color: #0073b7;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid #0073b7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
