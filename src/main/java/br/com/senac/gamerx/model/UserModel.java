@@ -30,6 +30,16 @@ public class UserModel implements UserDetails {
     private UserRole role;
     private boolean active;
 
+    public UserModel(String email, String password, String cpf, UserRole role, boolean active) {
+        this.email = email;
+        this.password = password;
+        this.cpf = cpf;
+        this.role = role;
+        this.active = active;
+    }
+
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.role == UserRole.ADMIN)

@@ -1,4 +1,6 @@
 package br.com.senac.gamerx.dto;
 
-public record RegisterDTO(String email, String password, String role) {
+import br.com.senac.gamerx.enumeration.UserRole;
+
+public record RegisterDTO(String email, String password, UserRole role, String cpf, Boolean active) {
 }

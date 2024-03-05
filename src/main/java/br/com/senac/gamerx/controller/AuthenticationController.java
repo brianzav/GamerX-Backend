@@ -31,11 +31,15 @@ public class AuthenticationController {
         return ResponseEntity.ok().build();
     }
 
-    TODO CRIAR CONSTRUTOR DO USER MODEL COM TODOS OS ATRIBUTOS
+    //TODO CRIAR CONSTRUTOR DO USER MODEL COM TODOS OS ATRIBUTOS
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid RegisterDTO data){
         if(this.repository.findByEmail(data.email()) != null) return ResponseEntity.badRequest().build();
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
-        UserModel newUser = new UserModel(data.email(), encryptedPassword, data.role(), data.);
+        UserModel newUser = new UserModel(data.email(), encryptedPassword, data.cpf(), data.role(), data.active());
+
+        this.repository.save(newUser);
+
+        return ResponseEntity.ok().build();
     }
 }
