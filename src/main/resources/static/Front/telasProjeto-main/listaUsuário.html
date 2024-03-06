@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Usuários</title>
+    <link rel="stylesheet" href="CSS/styleUsuario.css">
+</head>
+<body>
+    
+    <div id="mainBusca">
+        <h1>Listagem de Usuários</h1>
+        <div id="divBusca">
+            <input type="text" id="txtBusca" placeholder="Buscar..."/>
+            <button id="btnBusca">Buscar</button>
+        </div>
+    </div>
+    <table id="usuariosTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Grupo</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="usuariosBody">
+            <!-- Os dados serão inseridos aqui -->
+        </tbody>
+    </table>
+
+    <div id="dialogAlterar" class="dialog">
+        <div class="dialog-content">
+            <span class="fechar" onclick="fecharDialog()">&times;</span>
+            <p>Editar Usuário</p>
+            <label for="campo">Selecione o campo para alterar:</label>
+            <select id="campo">
+                <option value="nome">Nome</option>
+                <option value="email">Email</option>
+            </select>
+            <label for="novoValor">Novo Valor:</label>
+            <input type="text" id="novoValor">
+            <button onclick="confirmarAlteracao()">Confirmar</button>
+        </div>
+    </div>
+
+    <script src="JS/scripts.js"></script>
+</body>
+</html>
