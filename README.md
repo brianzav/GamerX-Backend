@@ -22,6 +22,6 @@
 * Springboot
 * Javascript
 * HTML5
-* CSS(Tailwind/Bootstrap)
+* CSS (Tailwind/Bootstrap)
 * Scrum
 * Metodologia ágil
