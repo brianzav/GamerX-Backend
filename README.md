@@ -1,35 +1,35 @@
 
-PROJETO INTEGRADOR - GamerX
+<strong>PROJETO INTEGRADOR - GamerX</strong>
 
 
-Integrantes:
-Brian Zavala
-Luan Vasconcelos
-Pablo Gomes
-Rafael Pereira
+<strong>Integrantes:</strong><br><br><br>
+Brian Zavala<br>
+Luan Vasconcelos<br>
+Pablo Gomes<br>
+Rafael Pereira<br>
 
-
-
-
-
-Escopo do projeto
-
-
-Criar um e-commerce de hardwares e periféricos de computadores.
-Produtos reais
-Preços reais
-Fotos reais
+<br><br><br>
 
 
 
+<strong>Escopo do projeto</strong><br><br><br>
 
-Tecnologias, metodologias e linguagens utilizadas:
+
+Criar um e-commerce de hardwares e periféricos de computadores.<br>
+Produtos reais<br>
+Preços reais<br>
+Fotos reais<br>
+
+<br><br>
 
 
-Java 17
-Springboot
-Javascript
-HTML5
-CSS (Tailwind/Bootstrap)
-Scrum
-Metodologia ágil
+<strong>Tecnologias, metodologias e linguagens utilizadas:</strong><br><br>
+
+
+Java 17<br>
+Springboot<br>
+Javascript<br>
+HTML5<br>
+CSS (Tailwind/Bootstrap)<br>
+Scrum<br>
+Metodologia ágil<br>
