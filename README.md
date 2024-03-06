@@ -13,3 +13,15 @@
 * Produtos reais<br>
 * Preços reais<br>
 * Fotos reais<br>
+
+<br><br><br>
+
+<strong>Tecnologias, metodologias e linguagens utilizadas:</strong><br><br>
+
+* Java 17
+* Springboot
+* Javascript
+* HTML5
+* CSS(Tailwind/Bootstrap)
+* Scrum
+* Metodologia ágil
