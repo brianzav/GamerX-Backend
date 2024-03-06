@@ -2,10 +2,7 @@ package br.com.senac.gamerx.model;
 
 import br.com.senac.gamerx.enumeration.UserRole;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,12 +14,14 @@ import java.util.List;
 @Entity(name = "users")
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class UserModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    private String nome;
     private String email;
     private String password;
     private String cpf;
@@ -30,15 +29,14 @@ public class UserModel implements UserDetails {
     private UserRole role;
     private boolean active;
 
-    public UserModel(String email, String password, String cpf, UserRole role, boolean active) {
+    public UserModel(String nome, String email, String password, String cpf, UserRole role, boolean active) {
+        this.nome = nome;
         this.email = email;
         this.password = password;
         this.cpf = cpf;
         this.role = role;
         this.active = active;
     }
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
