@@ -1,7 +1,9 @@
 package br.com.senac.gamerx.controller;
 
 import br.com.senac.gamerx.dto.AuthenticationDTO;
+import br.com.senac.gamerx.dto.LoginResponseDTO;
 import br.com.senac.gamerx.dto.RegisterDTO;
+import br.com.senac.gamerx.infra.security.TokenService;
 import br.com.senac.gamerx.model.UserModel;
 import br.com.senac.gamerx.repository.UserRepository;
 import jakarta.validation.Valid;
@@ -23,16 +25,17 @@ public class AuthenticationController {
     private AuthenticationManager authenticationManager;
     @Autowired
     private UserRepository repository;
-
+@Autowired
+private TokenService tokenService;
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-        return ResponseEntity.ok().build();
+        var token = tokenService.generateToken((UserModel) auth.getPrincipal());
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
-    //TODO CRIAR CONSTRUTOR DO USER MODEL COM TODOS OS ATRIBUTOS
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid RegisterDTO data){
         if(this.repository.findByEmail(data.email()) != null) return ResponseEntity.badRequest().build();
