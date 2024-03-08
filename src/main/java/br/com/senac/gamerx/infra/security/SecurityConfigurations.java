@@ -17,17 +17,19 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfigurations {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        return httpSecurity
+       return httpSecurity
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/users").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        .requestMatchers(HttpMethod.GET, "/", "/index.html", "/CSS/**", "/js/**", "/img/**").permitAll() // Permite acesso não autenticado à página inicial e recursos estáticos
+                        .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/register", "/telaOpcoes.html").permitAll() // Permite POST sem autenticação para login e registro
+                        .requestMatchers(HttpMethod.POST, "/users").hasRole("ADMIN") // Exige autenticação de ADMIN para certas ações
+                        .anyRequest().authenticated() // Todos os outros pedidos exigem autenticação
                 )
-                .build();
+
+         .build();
     }
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();

@@ -7,22 +7,51 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <header>
-        <a href="#">
-            <img src="img/logoEmpresa.png" alt="Pc Gamer">
-        </a>
-    </header>
-    <main>
-        <section class="login">
-            <h2>Identificação</h2>
-            <form action="#">
-                <label for="usuario">Usuário</label>
-                <input type="text" id="email" name="email" placeholder="Digite seu usuário">
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
-                <button type="submit">Continuar</button>
-            </form>
-        </section>
-    </main>
+<header>
+    <a href="#">
+        <img src="img/logoEmpresa.png" alt="Pc Gamer">
+    </a>
+</header>
+<main>
+    <section class="login">
+        <h2>Identificação</h2>
+        <form id="loginForm">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="email" name="email" placeholder="Digite seu usuário">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+            <button type="submit">Continuar</button>
+        </form>
+    </section>
+</main>
+
+<script>
+       document.getElementById('loginForm').addEventListener('submit', async function(e) {
+           e.preventDefault(); // Previne o comportamento padrão de submit
+
+           const email = document.getElementById('email').value;
+           const senha = document.getElementById('senha').value;
+
+           try {
+               const response = await fetch('/auth/login', {
+                   method: 'POST',
+                   headers: {
+                       'Content-Type': 'application/json',
+                   },
+                   body: JSON.stringify({ email, password: senha })
+               });
+
+               if (response.ok) {
+                   // Login bem-sucedido, redirecionar para telaOpcoes.html
+                   window.location.href = 'telaOpcoes.html';
+               } else {
+                   alert('Login falhou! Por favor, verifique suas credenciais.');
+               }
+           } catch (error) {
+               console.error('Erro ao tentar login:', error);
+               alert('Erro ao tentar login.');
+           }
+       });
+   </script>
 </body>
 </html>
