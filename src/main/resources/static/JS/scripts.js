@@ -1,13 +1,20 @@
 // Função para buscar os dados endpoint
 async function carregarUsuarios() {
+    const token = localStorage.getItem('token'); // Recupera o token do local storage
+
     try {
-        const response = await fetch('/usuarios');
+        const response = await fetch('/usuarios', {
+            headers: {
+                'Authorization': `Bearer ${token}` // Inclui o token no cabeçalho de autorização
+            }
+        });
         const usuarios = await response.json();
         renderizarUsuarios(usuarios);
     } catch (error) {
         console.error('Erro ao carregar usuários:', error);
     }
 }
+
 
 // Função para renderizar os usuários na tabela
 function renderizarUsuarios(usuarios) {

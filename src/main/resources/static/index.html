@@ -27,31 +27,33 @@
 
 <script>
        document.getElementById('loginForm').addEventListener('submit', async function(e) {
-           e.preventDefault(); // Previne o comportamento padrão de submit
+    e.preventDefault();
 
-           const email = document.getElementById('email').value;
-           const senha = document.getElementById('senha').value;
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
 
-           try {
-               const response = await fetch('/auth/login', {
-                   method: 'POST',
-                   headers: {
-                       'Content-Type': 'application/json',
-                   },
-                   body: JSON.stringify({ email, password: senha })
-               });
+    try {
+        const response = await fetch('/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password: senha })
+        });
 
-               if (response.ok) {
-                   // Login bem-sucedido, redirecionar para telaOpcoes.html
-                   window.location.href = 'telaOpcoes.html';
-               } else {
-                   alert('Login falhou! Por favor, verifique suas credenciais.');
-               }
-           } catch (error) {
-               console.error('Erro ao tentar login:', error);
-               alert('Erro ao tentar login.');
-           }
-       });
+        if (response.ok) {
+            const { token } = await response.json();
+            localStorage.setItem('token', token);
+            window.location.href = 'listaUsuario.html';
+        } else {
+            alert('Login falhou! Por favor, verifique suas credenciais.');
+        }
+    } catch (error) {
+        console.error('Erro ao tentar login:', error);
+        alert('Erro ao tentar login.');
+    }
+});
+
    </script>
 </body>
 </html>
