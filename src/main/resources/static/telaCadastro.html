@@ -8,37 +8,45 @@
 
 </head>
 <body>
-<header>
-    <a href="#">
-        <img src="img/logoEmpresa.png" alt="Pc Gamer">
-    </a>
-</header>
-<main>
-    <section class="login">
-        <h2>Identificação</h2>
+    <header>
+        <a href="#">
+            <img src="img/logoEmpresa.png" alt="Pc Gamer">
+        </a>
+    </header>
+    <main>
+        <section class="login">
+            <h2>Identificação</h2>
 
 
-        <form action="/auth/register" method="post">
-            <label for="usuario">Nome</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+            <form action="/auth/register" method="post">
+                <label for="usuario">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
 
-            <label for="cpf">CPF</label>
-            <input type="text" id="cpf" name="cpf" maxlength="14" title="Digite seu CPF" required>
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" maxlength="14" title="Digite seu CPF" required>
 
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
 
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
 
-            <input type="hidden" name="active" value="1">
-            <input type="hidden" name="role" value="user">
+                <input type="hidden" name="active" value="1">
+                <input type="hidden" name="role" value="user">
 
 
-            <button type="submit">Continuar</button>
-        </form>
-    </section>
-</main>
-<script src="JS/autoPreencheCPF.js"></script>
+                <button type="submit">Continuar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>
+            Dúvidas? Acesse nossa <a href="#">Central de Ajuda</a>.
+        </p>
+        <p>
+            Magazine Luiza S.A. - CNPJ: 47.960.950/0001-21 - Inscrição Estadual: 031.010.940.123
+        </p>
+    </footer>
+    <script src="JS/autoPreencheCPF.js"></script>
 </body>
 </html>
